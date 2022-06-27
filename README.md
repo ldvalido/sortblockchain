@@ -8,6 +8,6 @@ Buildear la imagen: docker -t rooftop . <BR/>
 Correr la imagen docker run rooftop <BR/>
 
 Next Steps:
-
+Incrementar Code Coverage
 mejor performance para la búsqueda
 sonarqube - CI CD¿?
