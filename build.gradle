@@ -1,0 +1,44 @@
+plugins {
+	id 'org.springframework.boot' version '3.0.0-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.rooftop'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+	maven { url 'https://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'com.google.code.gson:gson:2.9.0'
+
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+	testCompileOnly 'org.projectlombok:lombok:1.18.24'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+	implementation("com.squareup.okhttp3:okhttp:4.10.0")
+	testImplementation("com.squareup.okhttp3:mockwebserver:4.10.0")
+
+	implementation "io.github.resilience4j:resilience4j-circuitbreaker:1.7.1"
+	implementation "io.github.resilience4j:resilience4j-ratelimiter:1.7.1"
+	implementation "io.github.resilience4j:resilience4j-retry:1.7.1"
+	implementation "io.github.resilience4j:resilience4j-bulkhead:1.7.1"
+	implementation "io.github.resilience4j:resilience4j-cache:1.7.1"
+	implementation "io.github.resilience4j:resilience4j-timelimiter:1.7.1"
+
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
